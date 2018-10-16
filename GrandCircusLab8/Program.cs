@@ -184,6 +184,7 @@ namespace GrandCircusLab8
             }
             else
             {
+                Console.WriteLine("Please only type 'hometown' or 'favorite food'!");
                 return "";                
             }
 
