@@ -92,8 +92,6 @@ namespace GrandCircusLab8
             students[19, 1] = "Springfield";
             students[19, 2] = "Donuts";
 
-
-
             int location = 0;
 
             while (true)
@@ -101,38 +99,28 @@ namespace GrandCircusLab8
             {
                 while (true)
                 {
+                    Console.WriteLine("Welcome to class. Which student would you like to learn more about?\n(Enter a number 1-20)");
+
+                    //format handling
                     try
                     {
-                        Console.WriteLine("Welcome to class. Which student would you like to learn more about?\n(Enter a number 1-20)");
+                        location = Int32.Parse(Console.ReadLine());
 
-                        //exception handling
-                        try
-                        {
-                            location = Int32.Parse(Console.ReadLine());
-
-                        }
-                        catch (FormatException)
-                        {
-                            Console.WriteLine("Please only enter a number!\n\n");
-                            continue;
-                        }
-
-
-                        //range handling
-                        try
-                        {
-                            string test = students[location - 1, 0];
-                        }
-                        catch (IndexOutOfRangeException)
-                        {
-                            Console.WriteLine("Student does not exist!\n\n");
-                            continue;
-                        }
                     }
-                    catch
+                    catch (FormatException)
                     {
-                        Console.Clear();
                         Console.WriteLine("Please only enter a number!\n\n");
+                        continue;
+                    }
+
+                    //range handling
+                    try
+                    {
+                        string test = students[location - 1, 0];
+                    }
+                    catch (IndexOutOfRangeException)
+                    {
+                        Console.WriteLine("Student does not exist!\n\n");
                         continue;
                     }
 
@@ -156,6 +144,8 @@ namespace GrandCircusLab8
 
                     Console.WriteLine(info);
                 }
+
+
 
                 Console.WriteLine("\n\nWould you like to continue searching?\n\n('y' for yes, anything else to quit!)");
 
